@@ -4,20 +4,26 @@
 void main()
 {
     double start, end;
-    int range, temp;
+    int range, temp, count, i, j;
     FILE *fp = fopen("random.txt", "r");
     FILE *fp2 = fopen("sorted.txt", "w");
+    FILE *fp3 = fopen("odd.txt", "r");
+    FILE *fp4 = fopen("even.txt", "r");
     printf("Enter n: ");
     scanf("%d", &range);
     int arr[range];
     start = omp_get_wtime();
-    for (int i = 0; i < range; i++)
+    i = 0;
+    while (!feof(fp3))
     {
-        fscanf(fp, "%d\n", &arr[i]);
+        temp = fscanf(fp3, "%d", &arr[i]);
+        count++;
+        i++;
     }
-    for (int i = 0; i < range; i++)
+    printf("Count: %d", count);
+    for (i = 0; i < range; i++)
     {
-        for (int j = i + 1; j < range; j++)
+        for (j = i + 1; j < range; j++)
         {
             if (arr[i] > arr[j])
             {
@@ -27,7 +33,7 @@ void main()
             }
         }
     }
-    for (int i = 0; i < range; i++)
+    for (i = 0; i < range; i++)
     {
         printf("%d ", arr[i]);
         fprintf(fp2, "%d\n ", arr[i]);
