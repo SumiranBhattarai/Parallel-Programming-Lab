@@ -15,7 +15,7 @@ void main()
     for (int i = 0; i < n; i++)
     {
         num = rand() % range;
-        if (i % 2 != 0)
+        if (num % 2 != 0)
         {
             fprintf(fp2, "%d ", num);
         }
