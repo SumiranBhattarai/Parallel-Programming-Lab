@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <omp.h>
-#define ASIZE 1000
+#define ASIZE 100000
 void main()
 {
     double t1, t2;
